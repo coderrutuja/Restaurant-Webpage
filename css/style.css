@@ -1,15 +1,25 @@
 /* CSS VARIABLES (Theme, Colors, Layout, Effects) */
 :root {
-    --primary: #ff6200;
-    --primary-dark: #a04000;
-    --dark: #1a1a1a;
-    --text-main: #2d3436;
-    --text-light: #636e72;
+    --primary: #e24f1c;
+    --primary-light: #f07a4a;
+    --secondary: #d99b49;
+
+    --text-main: #333333;
+    --text-light: #555555;
+
+    --bg-light: #fafafa;
+    --bg-section: #f7f7f7;
+
     --white: #ffffff;
-    --bg-light: #fdfdfd;
-    --bg-section: #f8f9fa;
-    --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-    --shadow-md: 0 12px 30px rgba(0,0,0,0.1);
+    --dark: #1f1f1f;
+
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-md: 0 12px 30px rgba(0,0,0,0.12);
+
+    --accent-strong: var(--primary);
+    --accent-soft: var(--secondary);
+    --accent-muted: rgba(226, 79, 28, 0.15);
+
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --container-width: 1200px;
 }
@@ -79,8 +89,8 @@ h3 {
 
 /* Navbar */
 .navbar {
-    background: rgba(255,255,255,0.95); /* less glass */
-    backdrop-filter: blur(8px);         /* softer blur */
+    background: rgba(255,255,255,0.92); /* less glass */
+    backdrop-filter: blur(6px);         /* softer blur */
     -webkit-backdrop-filter: blur(15px);
     padding: 1.2rem 0;
     position: fixed;
@@ -182,8 +192,8 @@ h3 {
 }
 
 .hero-badge {
-    background: rgba(255,255,255,0.15);
-    color: white;
+    background: var(--accent-soft);
+    color: var(--dark);
     padding: 6px 16px;
     border-radius: 50px;
     font-size: 0.75rem;
@@ -225,9 +235,9 @@ h3 {
     color: var(--white);
 }
 
-
 .btn.primary:hover {
-    background: var(--primary-dark);
+    /*background: var(--primary-dark);*/
+    background: rgba(226, 79, 28, 0.9);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(211, 84, 0, 0.3);
 }
@@ -280,12 +290,12 @@ h3 {
     left: -20px; */
     bottom: 20px;
     left: 20px;
-    background: var(--primary);
-    color: white;
+    background: var(--secondary);
+    color: var(--dark);
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 10px 30px rgb(239, 143, 84);
+    box-shadow: 0 10px 30px rgba(217, 155, 73, 0.4);
 }
 
 .experience-badge .num {
@@ -312,7 +322,7 @@ h3 {
 
 .filter-btn {
     padding: 10px 24px;
-    border: 1px solid #eee;
+    border: 1px solid #e5e5e5;
     background: var(--white);
     border-radius: 50px;
     cursor: pointer;
@@ -320,10 +330,14 @@ h3 {
     font-weight: 500;
 }
 
-.filter-btn.active,
 .filter-btn:hover {
+    background: var(--accent-muted);
+    color: var(--primary);
+}
+
+.filter-btn.active {
     background: var(--primary);
-    color: white;
+    color: var(--white);
     border-color: var(--primary);
 }
 
@@ -412,8 +426,8 @@ h3 {
 
 /* Footer */
 .footer {
-    background: var(--dark);
-    color: #bdc3c7;
+    background: #181818;
+    color: #a8a8a8;
     padding: 80px 0 0;
 }
 
@@ -425,7 +439,7 @@ h3 {
 }
 
 .footer h4 {
-    color: var(--white);
+    color: #ffffff;
     margin-bottom: 1.5rem;
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
