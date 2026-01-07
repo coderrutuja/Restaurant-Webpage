@@ -6,6 +6,10 @@
 import { fetchMenuData } from "./dataService.js";
 import { renderMenu } from "./renderMenu.js";
 
+//  GLOBAL STATE (SINGLE SOURCE OF TRUTH)
+let menuItems = [];
+let activeCategory = "all";
+
 /* =========================================================
    DOM ELEMENT REFERENCES
    ========================================================= */
@@ -13,6 +17,7 @@ const menuContainer = document.getElementById("menuContainer");   // Container w
 const filterButtons = document.querySelectorAll(".filter-btn");   // Category filter buttons
 const mobileToggle = document.querySelector(".mobile-nav-toggle"); // Mobile menu toggle button
 const navList = document.querySelector(".nav-list");              // Navigation list (links)
+const searchInput = document.getElementById("searchInput");
 
 /* =========================================================
    1. MOBILE NAVIGATION TOGGLE
@@ -35,9 +40,9 @@ mobileToggle.addEventListener("click", () => {
    ========================================================= */
 async function init() {
     try {
-        const menuItems = await fetchMenuData(); // Fetch all menu items
+        menuItems = await fetchMenuData(); // Fetch all menu items
 
-        if (menuItems) {
+        if (menuItems.length) {
             renderMenu(menuItems, menuContainer); // Render items into container
             animateCards();                       // Animate menu cards
         }
@@ -47,69 +52,79 @@ async function init() {
 }
 
 /* =========================================================
-   3. FILTERING LOGIC WITH ANIMATION
-   - Filters menu items by category
-   - Updates active button state
-   - Re-renders menu and re-triggers animation
+   3. SEARCH + CATEGORY FILTER (COMBINED LOGIC)
+   ========================================================= */
+function applyFilters() {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    const filteredItems = menuItems.filter(item => {
+        const matchesCategory =
+            activeCategory === "all" || item.category === activeCategory;
+
+        const matchesSearch =
+            item.name.toLowerCase().includes(searchTerm) ||
+            item.description.toLowerCase().includes(searchTerm);
+
+        return matchesCategory && matchesSearch;
+    });
+
+    renderMenu(filteredItems, menuContainer);
+    animateCards();
+}
+
+/* =========================================================
+   4. CATEGORY FILTER BUTTONS
    ========================================================= */
 filterButtons.forEach(btn => {
-    btn.addEventListener("click", async (e) => {
+    btn.addEventListener("click", () => {
 
-        // Update active button UI state
         filterButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        const category = btn.dataset.category; // Selected category
-        const allData = await fetchMenuData(); // Fetch full menu data
-
-        // Filter menu items based on selected category
-        const filtered = category === 'all'
-            ? allData
-            : allData.filter(item => item.category === category);
-
-        renderMenu(filtered, menuContainer); // Render filtered menu
-        animateCards();                      // Animate cards again
+        activeCategory = btn.dataset.category;
+        applyFilters();
     });
 });
 
 /* =========================================================
+   5. SEARCH INPUT HANDLER
+   ========================================================= */
+searchInput.addEventListener("input", applyFilters);
+
+/* =========================================================
    MENU CARD ANIMATION
-   - Adds fade-in effect with staggered delay
    ========================================================= */
 function animateCards() {
     const cards = document.querySelectorAll(".menu-card");
 
     cards.forEach((card, index) => {
+        card.classList.remove("fade-in");
         setTimeout(() => {
-            card.classList.add("fade-in"); // Trigger CSS animation
-        }, index * 100); // Stagger effect
+            card.classList.add("fade-in");
+        }, index * 100);
     });
 }
 
 /* =========================================================
    SMOOTH SCROLL FOR NAVIGATION LINKS
-   - Smoothly scrolls to section
-   - Closes mobile menu after click
    ========================================================= */
-document.querySelectorAll('.nav-link').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+document.querySelectorAll(".nav-link").forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const target = document.querySelector(this.getAttribute('href')); // Target section
+        const target = document.querySelector(this.getAttribute("href"));
+        if (!target) return;
 
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80, // Offset for fixed navbar
-                behavior: 'smooth'
-            });
+        window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: "smooth"
+        });
 
-            navList.classList.remove("active"); // Close mobile menu
-        }
+        navList.classList.remove("active");
     });
 });
 
 /* =========================================================
    DOM CONTENT LOADED
-   - Initializes application once DOM is ready
    ========================================================= */
 document.addEventListener("DOMContentLoaded", init);
