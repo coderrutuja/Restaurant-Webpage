@@ -311,6 +311,28 @@ h3 {
     background: var(--bg-section);
 }
 
+/* Search Menu Feature */
+.menu-search {
+    max-width: 400px;
+    margin: 0 auto 2.5rem;
+}
+
+.menu-search input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.menu-search input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(226, 79, 28, 0.15);
+}
+
+
 /* Filter buttons */
 .filter-group {
     display: flex;
