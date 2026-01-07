@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita Pizza",
+    "category": "main",
+    "price": 250,
+    "description": "Classic cheese pizza with fresh basil and mozzarella",
+    "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Veg Burger",
+    "category": "starter",
+    "price": 150,
+    "description": "Crispy veg patty with fresh lettuce and special sauce",
+    "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "name": "White Sauce Pasta",
+    "category": "main",
+    "price": 220,
+    "description": "Creamy pasta with herbs and parmesan cheese",
+    "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Chocolate Brownie",
+    "category": "dessert",
+    "price": 120,
+    "description": "Rich chocolate brownie with nuts and vanilla ice cream",
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Caesar Salad",
+    "category": "starter",
+    "price": 180,
+    "description": "Fresh romaine lettuce with parmesan and croutons",
+    "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Grilled Sandwich",
+    "category": "starter",
+    "price": 130,
+    "description": "Toasted sandwich with vegetables and cheese",
+    "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Tiramisu",
+    "category": "dessert",
+    "price": 160,
+    "description": "Classic Italian dessert with coffee and mascarpone",
+    "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Garlic Bread",
+    "category": "starter",
+    "price": 90,
+    "description": "Toasted bread with garlic butter and herbs",
+    "image": "https://images.pexels.com/photos/920220/pexels-photo-920220.jpeg?auto=compress&cs=tinysrgb&w=800"
+  }
+]
