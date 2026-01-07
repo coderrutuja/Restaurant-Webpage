@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Delicious Bites - Authentic fine dining in Mumbai." />
+    <title>Delicious Bites | Fine Dining Mumbai</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">DB<span>.</span></a>
+            
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Our Story</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-sm primary">Book a Table</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <span class="hero-badge">Est. 2026</span>
+                <h1 class="hero-title">Authentic Flavors, <br>Fresh Ingredients</h1>
+                <p class="hero-subtitle">Experience culinary excellence crafted with passion in the heart of Mumbai.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn primary">Explore Menu</a>
+                    <a href="#about" class="btn outline">Our Story</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Exquisite Dish" class="main-img">
+                        <div class="experience-badge">
+                            <span class="num">15+</span>
+                            <span class="txt">Years of<br>Excellence</span>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <span class="sub-heading">Fine Dining Experience</span>
+                        <h2 class="section-title">Our Culinary Journey</h2>
+                        <p>Delicious Bites is dedicated to serving fresh, hygienic, and flavorful dishes made from quality ingredients. Our chefs blend tradition with modern taste.</p>
+                        <p>Located in the heart of Mumbai, we pride ourselves on exceptional service and a warm atmosphere that makes every visit special.</p>
+                        <a href="#menu" class="btn-text">Discover our specialties <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="section light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">Selection</span>
+                    <h2 class="section-title">From Our Kitchen</h2>
+                </div>
+                
+                <div class="filter-group">
+                    <button class="filter-btn active" data-category="all">All Dishes</button>
+                    <button class="filter-btn" data-category="starter">Starters</button>
+                    <button class="filter-btn" data-category="main">Main Course</button>
+                    <button class="filter-btn" data-category="dessert">Desserts</button>
+                </div>
+
+                <div class="menu-grid" id="menuContainer">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2 class="logo">DB<span>.</span></h2>
+                <p>Crafting moments through flavor since 2026. Join us for an unforgettable dining experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="#about">About Us</a>
+                <a href="#menu">Menu</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Reservations</a>
+            </div>
+            <div class="footer-contact" id="contact">
+                <h4>Visit Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Nariman Point, Mumbai, India</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> hello@deliciousbites.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Delicious Bites. Designed with Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
