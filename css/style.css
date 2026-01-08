@@ -260,6 +260,15 @@ h3 {
   box-shadow: 0 4px 10px rgba(226, 79, 28, 0.5);
 }
 
+/* Mobile menu button - hidden by default (desktop) */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 /* =========================================================
    HERO SECTION
    ========================================================= */
