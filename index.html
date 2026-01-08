@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding -->
     <meta charset="UTF-8" />
+
+    <!-- Responsive viewport for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO description -->
     <meta name="description" content="Delicious Bites - Authentic fine dining in Mumbai." />
+
+    <!-- Page title -->
     <title>Delicious Bites | Fine Dining Mumbai</title>
 
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- ================= NAVBAR ================= -->
     <nav class="navbar">
         <div class="container nav-container">
+
+            <!-- Logo -->
             <a href="#" class="logo">DB<span>.</span></a>
             
+            <!-- Navigation links -->
             <ul class="nav-list">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">Our Story</a></li>
                 <li><a href="#menu" class="nav-link">Menu</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+
+                <!-- Mobile-only actions -->
+                <li class="mobile-only">
+                    <div class="mobile-actions">
+
+                        <!-- Cart icon for mobile -->
+                        <div class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+
+                        <!-- Book table button for mobile -->
+                        <a href="#contact" class="btn primary btn-sm">Book a Table</a>
+                    </div>
+                </li>
             </ul>
 
+            <!-- Desktop actions -->
             <div class="nav-actions">
+
+                <!-- Cart icon -->
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+
+                <!-- Book table button -->
                 <a href="#contact" class="btn btn-sm primary">Book a Table</a>
+
+                <!-- Mobile navigation toggle -->
                 <button class="mobile-nav-toggle" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -33,14 +74,21 @@
         </div>
     </nav>
 
+    <!-- ================= MAIN CONTENT ================= -->
     <main>
-        <!-- Hero Section -->
+
+        <!-- ================= HERO SECTION ================= -->
         <section class="hero" id="home">
             <div class="hero-overlay"></div>
+
             <div class="hero-content container">
                 <span class="hero-badge">Est. 2026</span>
                 <h1 class="hero-title">Authentic Flavors, <br>Fresh Ingredients</h1>
-                <p class="hero-subtitle">Experience culinary excellence crafted with passion in the heart of Mumbai.</p>
+                <p class="hero-subtitle">
+                    Experience culinary excellence crafted with passion in the heart of Mumbai.
+                </p>
+
+                <!-- Hero buttons -->
                 <div class="hero-buttons">
                     <a href="#menu" class="btn primary">Explore Menu</a>
                     <a href="#about" class="btn outline">Our Story</a>
@@ -48,36 +96,54 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- ================= ABOUT SECTION ================= -->
         <section id="about" class="section about">
             <div class="container">
                 <div class="about-grid">
+
+                    <!-- About image -->
                     <div class="about-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Exquisite Dish" class="main-img">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
+                             alt="Exquisite Dish"
+                             class="main-img">
+
+                        <!-- Experience badge -->
                         <div class="experience-badge">
                             <span class="num">15+</span>
                             <span class="txt">Years of<br>Excellence</span>
                         </div>
                     </div>
+
+                    <!-- About text -->
                     <div class="about-text">
                         <span class="sub-heading">Fine Dining Experience</span>
                         <h2 class="section-title">Our Culinary Journey</h2>
-                        <p>Delicious Bites is dedicated to serving fresh, hygienic, and flavorful dishes made from quality ingredients. Our chefs blend tradition with modern taste.</p>
-                        <p>Located in the heart of Mumbai, we pride ourselves on exceptional service and a warm atmosphere that makes every visit special.</p>
-                        <a href="#menu" class="btn-text">Discover our specialties <i class="fas fa-arrow-right"></i></a>
+                        <p>
+                            Delicious Bites is dedicated to serving fresh, hygienic, and flavorful dishes made from quality ingredients.
+                        </p>
+                        <p>
+                            Located in the heart of Mumbai, we pride ourselves on exceptional service and a warm atmosphere.
+                        </p>
+                        <a href="#menu" class="btn-text">
+                            Discover our specialties <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Menu Section -->
+        <!-- ================= MENU SECTION ================= -->
         <section id="menu" class="section light">
             <div class="container">
+
+                <!-- Section header -->
                 <div class="section-header">
                     <span class="sub-heading">Selection</span>
                     <h2 class="section-title">From Our Kitchen</h2>
                 </div>
 
+                <!-- Search input -->
                 <div class="menu-search">
                     <input 
                         type="text" 
@@ -86,7 +152,8 @@
                         aria-label="Search menu"
                     />
                 </div>
-                
+
+                <!-- Category filters -->
                 <div class="filter-group">
                     <button class="filter-btn active" data-category="all">All Dishes</button>
                     <button class="filter-btn" data-category="starter">Starters</button>
@@ -94,24 +161,64 @@
                     <button class="filter-btn" data-category="dessert">Desserts</button>
                 </div>
 
-                <div class="menu-grid" id="menuContainer">
-                    </div>
+                <!-- Menu items container (JS renders here) -->
+                <div class="menu-grid" id="menuContainer"></div>
+
             </div>
         </section>
+
+        <!-- ================= BOOK TABLE MODAL ================= -->
+        <section>
+            <div class="modal" id="bookTableModal">
+                <div class="modal-content">
+
+                    <!-- Close modal -->
+                    <button class="modal-close" id="closeBookTable">&times;</button>
+
+                    <h2>Book a Table</h2>
+
+                    <!-- Booking form -->
+                    <form class="booking-form">
+                        <input type="text" placeholder="Full Name" required />
+                        <input type="tel" placeholder="Phone Number" required />
+                        <input type="date" required />
+                        <input type="time" required />
+
+                        <select required>
+                            <option value="">Guests</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>4</option>
+                            <option>6+</option>
+                        </select>
+
+                        <button type="submit" class="btn primary">Confirm Booking</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer Section -->
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="container footer-grid">
+
+            <!-- Brand info -->
             <div class="footer-brand">
                 <h2 class="logo">DB<span>.</span></h2>
-                <p>Crafting moments through flavor since 2026. Join us for an unforgettable dining experience.</p>
+                <p>Crafting moments through flavor since 2026.</p>
+
+                <!-- Social icons -->
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
+
+            <!-- Footer links -->
             <div class="footer-links">
                 <h4>Explore</h4>
                 <a href="#about">About Us</a>
@@ -119,13 +226,18 @@
                 <a href="#gallery">Gallery</a>
                 <a href="#contact">Reservations</a>
             </div>
+
+            <!-- Contact info -->
             <div class="footer-contact" id="contact">
                 <h4>Visit Us</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Nariman Point, Mumbai, India</p>
                 <p><i class="fas fa-phone"></i> +91 98765 43210</p>
                 <p><i class="fas fa-envelope"></i> hello@deliciousbites.com</p>
             </div>
+
         </div>
+
+        <!-- Footer bottom -->
         <div class="footer-bottom">
             <div class="container">
                 <p>&copy; 2026 Delicious Bites. Designed with Excellence.</p>
@@ -133,6 +245,31 @@
         </div>
     </footer>
 
+    <!-- Main JavaScript file -->
     <script type="module" src="js/script.js"></script>
+
+    <!-- ================= ORDER MODAL ================= -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content order-modal">
+
+            <!-- Close modal -->
+            <button class="modal-close" id="closeOrder">&times;</button>
+
+            <!-- Selected item details -->
+            <h2 class="order-title" id="orderItemName"></h2>
+            <p class="order-price" id="orderItemPrice"></p>
+
+            <!-- Quantity controls -->
+            <div class="quantity-control">
+                <button class="qty-btn" id="decreaseQty">−</button>
+                <input type="number" id="orderQty" value="1" min="1" />
+                <button class="qty-btn" id="increaseQty">+</button>
+            </div>
+
+            <!-- Add to cart -->
+            <button class="btn primary full-width">Add to Cart</button>
+        </div>
+    </div>
+
 </body>
 </html>
