@@ -26,7 +26,12 @@ export function renderMenu(items, container) {
                     <span class="price">₹${item.price}</span>
                 </div>
                 <p class="menu-description">${item.description}</p>
-                <button class="btn primary btn-sm w-100 order-btn" data-id="${item.id}">
+                <button 
+                    class="btn primary btn-sm w-100 order-btn add-to-order" 
+                    data-id="${item.id} 
+                    data-name="${item.name}"
+                    data-price="${item.price}"
+                >
                     <i class="fas fa-plus"></i> Add to Order
                 </button>
             </div>
