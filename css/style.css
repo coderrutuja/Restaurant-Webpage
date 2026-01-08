@@ -1,40 +1,57 @@
-/* CSS VARIABLES (Theme, Colors, Layout, Effects) */
+/* =========================================================
+   CSS VARIABLES
+   - Centralized theme colors, typography, layout & effects
+   - Easy to maintain and update the design consistently
+   ========================================================= */
 :root {
+    /* Primary brand colors */
     --primary: #e24f1c;
     --primary-light: #f07a4a;
     --secondary: #d99b49;
 
+    /* Text colors */
     --text-main: #333333;
     --text-light: #555555;
 
+    /* Background colors */
     --bg-light: #fafafa;
     --bg-section: #f7f7f7;
 
+    /* Neutral colors */
     --white: #ffffff;
     --dark: #1f1f1f;
 
+    /* Shadows for depth */
     --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
     --shadow-md: 0 12px 30px rgba(0,0,0,0.12);
 
+    /* Accent helpers */
     --accent-strong: var(--primary);
     --accent-soft: var(--secondary);
     --accent-muted: rgba(226, 79, 28, 0.15);
 
+    /* Animation & layout helpers */
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --container-width: 1200px;
 }
 
-/* Reset & Base */
+/* =========================================================
+   RESET & BASE STYLES
+   - Removes browser default spacing
+   - Ensures consistent box sizing
+   ========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Enables smooth scrolling for anchor links */
 html {
     scroll-behavior: smooth;
 }
 
+/* Global body styles */
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-main);
@@ -42,24 +59,34 @@ body {
     background-color: var(--bg-light);
 }
 
-/* Common utility elements */
+/* =========================================================
+   COMMON UTILITIES
+   ========================================================= */
+
+/* Centered container with max width */
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 2rem;
 }
 
+/* Make images responsive */
 img {
     max-width: 100%;
     display: block;
 }
 
+/* Remove default link styling */
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* Typography */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+/* Headings font styling */
 h1,
 h2,
 h3 {
@@ -68,11 +95,13 @@ h3 {
     color: var(--dark);
 }
 
+/* Section heading size */
 .section-title {
     font-size: 3rem;
     margin-bottom: 1rem;
 } 
 
+/* Small uppercase subtitle */
 .sub-heading {
     color: var(--primary);
     font-weight: 600;
@@ -83,14 +112,19 @@ h3 {
     margin-bottom: 0.5rem;
 }
 
+/* Utility class for left-aligned text */
 .text-left {
     text-align: left;
 }
 
-/* Navbar */
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+/* Fixed navigation bar with glass effect */
 .navbar {
-    background: rgba(255,255,255,0.92); /* less glass */
-    backdrop-filter: blur(6px);         /* softer blur */
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(15px);
     padding: 1.2rem 0;
     position: fixed;
@@ -100,24 +134,26 @@ h3 {
     transition: var(--transition);
 }
 
+/* Navbar layout */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Logo */
+/* Logo styling */
 .logo {
     font-size: 2rem;
     font-family: 'Playfair Display', serif;
     font-weight: 800;
 }
 
+/* Highlight part of logo */
 .logo span {
     color: var(--primary);
 }
 
-/* Navigation links */
+/* Navigation list layout */
 .nav-list {
     display: flex;
     list-style: none;
@@ -125,6 +161,7 @@ h3 {
     align-items: center;
 }
 
+/* Individual nav link */
 .nav-link {
     font-weight: 500;
     font-size: 0.95rem;
@@ -133,7 +170,7 @@ h3 {
     position: relative;
 }
 
-/* Underline hover effect */
+/* Underline animation on hover */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -145,24 +182,89 @@ h3 {
     transition: var(--transition);
 }
 
+/* Expand underline on hover */
 .nav-link:hover::after {
     width: 100%;
 }
 
+/* Change text color on hover */
 .nav-link:hover {
     color: var(--primary);
 }
 
-/* Mobile menu button */
-.mobile-nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+/* Right-side nav actions (button + cart) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 
-/* Hero Section */
+/* Small button inside navbar */
+.nav-actions .btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+/* =========================================================
+   CART ICON
+   ========================================================= */
+
+/* Circular cart icon */
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(226, 79, 28, 0.08);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* Cart icon font */
+.cart-icon i {
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+/* Cart hover background */
+.cart-icon:hover {
+  background: var(--primary);
+}
+
+/* Cart hover icon color */
+.cart-icon:hover i {
+  color: #fff;
+}
+
+/* Cart item count badge */
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(226, 79, 28, 0.5);
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+/* Full-screen hero banner */
 .hero {
     position: relative;
     height: 100vh;
@@ -179,45 +281,56 @@ h3 {
     padding-top: 100px;
 }
 
-/* Dark overlay for readability */
+/* Dark overlay for better text contrast */
 .hero-overlay {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.3); /* This makes text readable */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.3);
 }
 
+/* Hero content stays above overlay */
 .hero-content {
     position: relative;
     z-index: 2;
 }
 
+/* Small highlighted badge shown above hero heading */
 .hero-badge {
-    background: var(--accent-soft);
-    color: var(--dark);
+    background: var(--accent-soft); /* soft accent background */
+    color: var(--dark);             /* dark text for contrast */
     padding: 6px 16px;
-    border-radius: 50px;
+    border-radius: 50px;            /* pill shape */
     font-size: 0.75rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     display: inline-block;
 }
 
+/* Main hero heading */
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(3rem, 8vw, 5rem); /* responsive font size */
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: var(--white);
 }
 
+/* Hero description text */
 .hero-subtitle {
     font-size: 1.1rem;
-    max-width: 700px;
+    max-width: 700px;               /* limits text width for readability */
     margin: 0 auto 2.5rem;
-    opacity: 0.85;
+    opacity: 0.85;                  /* slightly muted text */
 }
 
-/* Buttons */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+/* Base button styles */
 .btn {
     padding: 14px 30px;
     border-radius: 8px;
@@ -229,94 +342,121 @@ h3 {
     font-size: 0.9rem;
 }
 
-/* Primary button */
+/* Primary filled button */
 .btn.primary {
     background: var(--primary);
     color: var(--white);
 }
 
+/* Hover effect for primary button */
 .btn.primary:hover {
-    /*background: var(--primary-dark);*/
     background: rgba(226, 79, 28, 0.9);
-    transform: translateY(-3px);
+    transform: translateY(-3px);    /* subtle lift effect */
     box-shadow: 0 10px 20px rgba(211, 84, 0, 0.3);
 }
 
-/* Outline button */
+/* Outline style button */
 .btn.outline {
     border: 2px solid var(--white);
     color: var(--white);
 }
 
+/* Hover effect for outline button */
 .btn.outline:hover {
     background: var(--white);
     color: var(--dark);
 }
 
-/* Small button */
+/* Smaller button variant */
 .btn-sm {
     padding: 10px 20px;
     font-size: 0.85rem;
 }
 
-/* About section */
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+/* Common section spacing */
 .section {
     padding: 100px 0;
 }
 
-/* About layout */
+/* About section grid layout */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* two-column layout */
     gap: 4rem;
     align-items: center;
 }
 
+/* Wrapper for about image */
 .about-image-wrapper {
     position: relative;
+    border-radius: 16px;
+    overflow: hidden;               /* clips child image */
 }
 
+/* Main about image */
 .main-img {
     border-radius: 12px;
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: cover;              /* fills container without distortion */
 }
 
-/* Experience badge */
+/* Experience badge overlay on image */
 .experience-badge {
     position: absolute;
-    /* bottom: -20px;
-    left: -20px; */
-    bottom: 20px;
-    left: 20px;
-    background: var(--secondary);
+    bottom: 24px;
+    left: 24px;
+    background: var(--primary-light);
     color: var(--dark);
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+    border-radius: 14px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(217, 155, 73, 0.4);
+    box-shadow: 0 10px 30px rgba(217, 155, 73, 0.35);
 }
 
+/* Number inside experience badge */
 .experience-badge .num {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+
+/* Text inside experience badge */
+.experience-badge .txt {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-top: 0.3rem;
     display: block;
 }
 
-.section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1.5rem; }
+/* Section title override for about section */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
 
-/* Menu Section */
+/* =========================================================
+   MENU SECTION
+   ========================================================= */
+
+/* Light background section */
 .light {
     background: var(--bg-section);
 }
 
-/* Search Menu Feature */
+/* Search bar wrapper */
 .menu-search {
     max-width: 400px;
     margin: 0 auto 2.5rem;
 }
 
+/* Search input field */
 .menu-search input {
     width: 100%;
     padding: 14px 18px;
@@ -327,21 +467,26 @@ h3 {
     transition: var(--transition);
 }
 
+/* Search input focus state */
 .menu-search input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(226, 79, 28, 0.15);
 }
 
+/* =========================================================
+   FILTER BUTTONS
+   ========================================================= */
 
-/* Filter buttons */
+/* Filter button container */
 .filter-group {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-bottom: 4rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap;                /* wraps buttons on small screens */
 }
 
+/* Individual filter button */
 .filter-btn {
     padding: 10px 24px;
     border: 1px solid #e5e5e5;
@@ -352,57 +497,72 @@ h3 {
     font-weight: 500;
 }
 
+/* Hover state for filter buttons */
 .filter-btn:hover {
     background: var(--accent-muted);
     color: var(--primary);
 }
 
+/* Active filter button */
 .filter-btn.active {
     background: var(--primary);
     color: var(--white);
     border-color: var(--primary);
 }
 
-/* Menu grid */
+/* =========================================================
+   MENU GRID
+   ========================================================= */
+
+/* Grid layout for menu cards */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* responsive columns */
     gap: 2.5rem;
-    /*max-width to menu cards area*/
-    max-width: 1100px;
-    margin: 0 auto;
+    max-width: 1100px;            /* limits width of menu area */
+    margin: 0 auto;               /* centers grid */
 }
 
-/* Menu card */
+/* =========================================================
+   MENU CARD
+   ========================================================= */
+
+/* Individual menu item card */
 .menu-card {
     background: var(--white);
     border-radius: 16px;
-    overflow: hidden;
+    overflow: hidden;             /* hides overflowed image on hover */
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     position: relative;
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 0;                   /* hidden initially for animation */
+    transform: translateY(30px);  /* slide-up start position */
 }
 
-/* Fade-in animation (JS added) */
+/* Card fade-in animation triggered by JS */
 .menu-card.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Hover lift effect */
 .menu-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-md);
 }
 
-/* Menu image */
+/* =========================================================
+   MENU IMAGE
+   ========================================================= */
+
+/* Wrapper for menu image */
 .menu-image-wrapper {
     height: 240px;
-    overflow: hidden;
+    overflow: hidden;             /* crops zoomed image */
     position: relative;
 }
 
+/* Menu item image */
 .menu-card img {
     width: 100%;
     height: 100%;
@@ -410,15 +570,21 @@ h3 {
     transition: transform 0.6s ease;
 }
 
+/* Zoom image on card hover */
 .menu-card:hover img {
     transform: scale(1.1);
 }
 
-/* Menu content */
+/* =========================================================
+   MENU CONTENT
+   ========================================================= */
+
+/* Content area of menu card */
 .menu-info {
     padding: 1.8rem;
 }
 
+/* Header row with title and price */
 .menu-header {
     display: flex;
     justify-content: space-between;
@@ -426,33 +592,41 @@ h3 {
     margin-bottom: 1rem;
 }
 
+/* Menu item title */
 .menu-header h3 {
     font-size: 1.4rem;
 }
 
+/* Price styling */
 .price {
     color: var(--primary);
     font-weight: 700;
     font-size: 1.25rem;
 }
 
+/* Menu description text */
 .menu-description {
     color: var(--text-light);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2;         /* limits text to 2 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* Footer */
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+/* Footer background and spacing */
 .footer {
     background: #181818;
     color: #a8a8a8;
     padding: 80px 0 0;
 }
 
+/* Footer grid layout */
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1.5fr;
@@ -460,6 +634,7 @@ h3 {
     padding-bottom: 60px;
 }
 
+/* Footer section headings */
 .footer h4 {
     color: #ffffff;
     margin-bottom: 1.5rem;
@@ -467,17 +642,20 @@ h3 {
     font-size: 1.1rem;
 }
 
+/* Footer links */
 .footer-links a {
     display: block;
     margin-bottom: 0.8rem;
     transition: var(--transition);
 }
 
+/* Footer link hover effect */
 .footer-links a:hover {
     color: var(--primary);
     padding-left: 5px;
 }
 
+/* Footer bottom copyright */
 .footer-bottom {
     border-top: 1px solid #2d3436;
     padding: 30px 0;
@@ -485,34 +663,11 @@ h3 {
     font-size: 0.9rem;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .nav-list { 
-        display: none; /* Mobile menu logic in JS */ 
-    }
-    
-    .mobile-nav-toggle {
-        display: block;
-    }
+/* =========================================================
+   JS-ADDED NAV STATES
+   ========================================================= */
 
-    .nav-actions {
-        display: none;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero-title {
-        font-size: 3.5rem;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* JS-Added Active Class */
+/* Mobile menu active state (added via JS) */
 .nav-list.active {
     display: flex;
     flex-direction: column;
@@ -523,4 +678,274 @@ h3 {
     background: white;
     padding: 2rem;
     box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   MODAL BASE
+   ========================================================= */
+
+/* Full-screen modal overlay */
+.modal {
+  position: fixed;
+  inset: 0;                       /* covers entire viewport */
+  background: rgba(0, 0, 0, 0.6);
+  display: none;                  /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Modal content box */
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Close button for modal */
+.modal-close {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Booking form layout */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Booking form inputs */
+.booking-form input,
+.booking-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* =========================================================
+   ORDER MODAL
+   ========================================================= */
+
+/* Modal content specific to order popup */
+.order-modal {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  max-width: 380px;
+  animation: scaleIn 0.25s ease;   /* entry animation */
+}
+
+/* Order modal heading */
+.order-title {
+  font-size: 1.6rem;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.25rem;
+}
+
+/* Display price in order modal */
+.order-price {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   QUANTITY CONTROL
+   ========================================================= */
+
+/* Quantity input container */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1.8rem;
+}
+
+/* Quantity input field */
+.quantity-control input {
+  width: 60px;
+  text-align: center;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Plus / minus buttons */
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Utility class for full-width buttons */
+.full-width {
+  width: 100%;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+/* Scale-in animation used by modal */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   MOBILE UTILITIES
+   ========================================================= */
+
+/* Elements visible only on mobile */
+.mobile-only {
+  display: none;
+}
+
+/* Mobile action buttons layout */
+.mobile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   RESPONSIVE STYLES
+   ========================================================= */
+
+/* Tablets & small laptops */
+@media (max-width: 992px) {
+
+  /* Hide desktop nav menu */
+  .nav-list {
+    display: none;
+  }
+
+  /* Mobile navigation dropdown */
+  .nav-list.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    z-index: 999;
+  }
+
+  /* Center-align mobile nav items */
+  .nav-list.active li {
+    text-align: center;
+  }
+
+  /* Show hamburger icon */
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  /* Navbar action layout */
+  .nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* Hide actions when menu is open */
+  .nav-list.active + .nav-actions {
+    display: none;
+  }
+
+  /* Enable mobile-only elements */
+  .mobile-only {
+    display: block;
+  }
+}
+
+/* Tablets & large phones */
+@media (max-width: 768px) {
+
+    /* Switch about section to single column */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    /* Reduce image height */
+    .main-img {
+        height: 360px;
+    }
+
+    /* Adjust experience badge position */
+    .experience-badge {
+        bottom: 16px;
+        left: 16px;
+        padding: 1rem 1.2rem;
+    }
+
+    /* Reduce badge number size */
+    .experience-badge .num {
+        font-size: 1.7rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+
+  /* Modal layout adjustments */
+  .modal-content {
+    width: 92%;
+    padding: 1.8rem 1.5rem;
+  }
+
+  /* Smaller order title */
+  .order-title {
+    font-size: 1.3rem;
+  }
+
+  /* Smaller price text */
+  .order-price {
+    font-size: 1rem;
+  }
+
+  /* Increase spacing for touch comfort */
+  .quantity-control {
+    gap: 16px;
+  }
+
+  /* Larger buttons for touch */
+  .qty-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  /* Full-width button adjustments */
+  .full-width {
+    padding: 14px;
+    font-size: 1rem;
+  }
 }
